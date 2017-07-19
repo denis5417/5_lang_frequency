@@ -1,4 +1,5 @@
 import sys
+from collections import Counter
 import string
 
 
@@ -17,11 +18,11 @@ def get_most_frequent_words(words):
     if not words:
         pass
     else:
-        print(*sorted(set(words), key=words.count, reverse=True)[:10], sep='\n')
+        print("\n".join(pair[0] for pair in Counter(words).most_common(10)))
 
 
 if __name__ == '__main__':
     try:
         get_most_frequent_words(load_data(sys.argv[1]))
     except IndexError:
-        print("ВВедите название файла")
+        print("Введите название файла")
