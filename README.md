@@ -1,7 +1,38 @@
-# Frequency Analysis of Words
+# Частотный анализ слов
 
-[TODO. There will be project description]
+Скрипт принимает на вход путь до текстового файла и выводит в консоль десять самых популярных слов в этом файле в порядке убывания частоты.
 
-# Project Goals
+# Использование
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+Пример использования в Linux (Python 3.6.1)
+
+```#!bash
+$ python3 lang_frequency.py <path_to_russian_text>
+и
+на
+что
+в
+не
+то
+власть
+или
+масс
+власти
+```
+```#!bash
+$ python3 lang_frequency.py <path_to_english_text>
+the
+of
+to
+and
+that
+is
+power
+in
+a
+masses
+```
+
+# Цель проекта
+
+Это код написан в образовательных целях. Тренировочный курс для веб-девелоперов - [DEVMAN.org](https://devman.org)
