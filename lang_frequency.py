@@ -1,30 +1,27 @@
 import sys
 from collections import Counter
 import string
-
+import os
 
 def load_data(filepath):
-    try:
-        with open(filepath) as file:
-            text = file.read()
-        return get_words_from_text(text)
-    except FileNotFoundError:
+    if not os.path.exists(filepath):
         print("Такого файла не существует")
         return None
+    with open(filepath) as file:
+        text = file.read()
+    return get_words_from_text(text)
 
 
 def get_words_from_text(text):
     words = text.lower().split()
-    words = [word.rstrip(string.punctuation) for word in words if len(word.rstrip(string.punctuation))]
+    rstrip_words = lambda word: word.rstrip(string.punctuation)
+    words = [rstrip_words(word) for word in words if rstrip_words(word)]
     return words
 
 
 def get_most_frequent_words(words):
-    if not words:
-        return None
-    else:
-        output_words_quantity = 10
-        print("\n".join(pair[0] for pair in Counter(words).most_common(output_words_quantity)))
+    output_words_quantity = 10
+    print("\n".join(pair[0] for pair in Counter(words).most_common(output_words_quantity)))
 
 
 if __name__ == '__main__':
