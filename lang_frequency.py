@@ -14,9 +14,12 @@ def load_data(filepath):
 
 def get_words_from_text(text):
     words = text.lower().split()
-    rstrip_words = lambda word: word.rstrip(string.punctuation)
     words = [rstrip_words(word) for word in words if rstrip_words(word)]
     return words
+
+
+def rstrip_words(word):
+    return word.rstrip(string.punctuation)
 
 
 def get_most_frequent_words(words):
